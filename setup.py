@@ -3,10 +3,10 @@
 from distutils.core import setup
 
 setup(
-    name="merge-docx",
-    version="0.1",
-    description="Merge several docx files into one",
-    url="https://github.com/igsha/merge-docx",
+    name="combine-docx",
+    version="0.2",
+    description="Combine several docx files into one",
+    url="https://github.com/igsha/combine-docx",
     author="igsha",
     license="MIT",
     classifiers=[
@@ -18,6 +18,6 @@ setup(
         "Programming Language :: Python",
         "Topic :: Text Processing"
     ],
-    scripts=['merge-docx'],
+    scripts=['combine-docx'],
     install_requires=['python-docx >= 0.8.6'],
 )
