@@ -3,7 +3,7 @@
 from __future__ import print_function
 import docx, sys, argparse
 
-parser = argparse.ArgumentParser(description='Merge tool for DOCX')
+parser = argparse.ArgumentParser(description='Combine tool for DOCX')
 parser.add_argument('main', nargs=1, help='main docx files')
 parser.add_argument('--before', '-b', nargs='*', help='docx files inserted before main file content')
 parser.add_argument('--after', '-a', nargs='*', help='docx files inserted after main file content')
