@@ -3,7 +3,10 @@
 from __future__ import print_function
 import docx, sys, argparse
 
+__version__ = '0.2.2'
+
 parser = argparse.ArgumentParser(description='Combine tool for DOCX')
+parser.add_argument('--version', '-V', action='version', version='%(prog)s ' + __version__)
 parser.add_argument('main', nargs=1, help='main docx files')
 parser.add_argument('--before', '-b', nargs='*', help='docx files inserted before main file content')
 parser.add_argument('--after', '-a', nargs='*', help='docx files inserted after main file content')
