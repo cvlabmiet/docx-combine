@@ -15,6 +15,12 @@ main_doc = docx.Document(args.main[0])
 before_docs = [docx.Document(doc) for doc in args.before] if args.before else []
 after_docs = [docx.Document(doc) for doc in args.after] if args.after else []
 
+for doc in after_docs:
+    if args.page_break:
+        main_doc.add_page_break()
+    for element in doc.element.body:
+        main_doc.element.body.append(element)
+
 i = 0
 for doc in before_docs:
     if args.page_break:
@@ -22,12 +28,5 @@ for doc in before_docs:
     for element in doc.element.body:
         main_doc.element.body.insert(i, element)
         i += 1
-
-if args.page_break and len(after_docs) != 0:
-    main_doc.add_page_break()
-
-for doc in after_docs:
-    for element in doc.element.body:
-        main_doc.element.body.append(element)
 
 main_doc.save(args.output[0])
