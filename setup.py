@@ -4,7 +4,7 @@ from distutils.core import setup
 
 setup(
     name="combine-docx",
-    version="0.2",
+    version="0.2.1",
     description="Combine several docx files into one",
     url="https://github.com/igsha/combine-docx",
     author="igsha",
