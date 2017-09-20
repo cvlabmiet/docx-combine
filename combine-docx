@@ -3,12 +3,16 @@
 from __future__ import print_function
 import docx, sys, argparse
 
+__version__ = '0.2.3'
+
 parser = argparse.ArgumentParser(description='Combine tool for DOCX')
+parser.add_argument('--version', '-V', action='version', version='%(prog)s ' + __version__)
 parser.add_argument('main', nargs=1, help='main docx files')
 parser.add_argument('--before', '-b', nargs='*', help='docx files inserted before main file content')
 parser.add_argument('--after', '-a', nargs='*', help='docx files inserted after main file content')
 parser.add_argument('--output', '-o', nargs=1, help='output file', required=True)
 parser.add_argument('--page-break', '-p', action='store_true', help='insert page breaks between parts')
+parser.add_argument('--no-skip-sectpr', action='store_true', help='do not skip SectPr: header and footer')
 args = parser.parse_args()
 
 main_doc = docx.Document(args.main[0])
@@ -19,6 +23,8 @@ for doc in after_docs:
     if args.page_break:
         main_doc.add_page_break()
     for element in doc.element.body:
+        if not args.no_skip_sectpr and isinstance(element, docx.oxml.section.CT_SectPr):
+            continue
         main_doc.element.body.append(element)
 
 i = 0
@@ -26,6 +32,8 @@ for doc in before_docs:
     if args.page_break:
         doc.add_page_break()
     for element in doc.element.body:
+        if not args.no_skip_sectpr and isinstance(element, docx.oxml.section.CT_SectPr):
+            continue
         main_doc.element.body.insert(i, element)
         i += 1
 

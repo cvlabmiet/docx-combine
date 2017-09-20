@@ -1,14 +1,18 @@
 #!/usr/bin/env python
 
-from distutils.core import setup
+from setuptools import setup
+import re
+
+script_content = open('combine-docx').read()
+metadata = dict(re.findall("__([a-z]+)__\s*=\s*'([^']+)'", script_content))
 
 setup(
     name="combine-docx",
-    version="0.2.1",
+    version=metadata['version'],
     description="Combine several docx files into one",
     url="https://github.com/igsha/combine-docx",
     author="igsha",
-    license="MIT",
+    license="LICENSE",
     classifiers=[
         "Development Status :: 2 - Pre-Alpha",
         "Environment :: Console",
