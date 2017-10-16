@@ -1,20 +1,20 @@
-# combine-docx
+# docx-combine
 
 Combine several DOCX documents into one using `python-docx` module.
 
 # Installation
 
-Use `pip` and install the program by url using [release page](https://github.com/igsha/combine-docx/releases/latest):
+Use `pip` and install the program by url using [release page](https://github.com/cvlabmiet/docx-combine/releases/latest):
 ```sh
-$ pip install https://github.com/igsha/combine-docx/archive/v0.2.zip
+$ pip install https://github.com/cvlabmiet/docx-combine/archive/v0.2.4.zip
 ```
 
 # Usage
 
-The program `combine-docx` has convenient command line interface, provided by `argparse` python module:
+The program `docx-combine` has convenient command line interface, provided by `argparse` python module:
 ```sh
-$ combine-docx --help
-usage: combine-docx [-h] [--version] [--before [BEFORE [BEFORE ...]]]
+$ docx-combine --help
+usage: docx-combine [-h] [--version] [--before [BEFORE [BEFORE ...]]]
                     [--after [AFTER [AFTER ...]]] --output OUTPUT
                     [--page-break] [--no-skip-sectpr]
                     main
@@ -39,7 +39,7 @@ optional arguments:
 
 Also it has `--version` flag to check the installed program version:
 ```sh
-combine-docx 0.2.3
+docx-combine 0.2.4
 ```
 
 The program expects `main` file that will be chosen as main part of document.

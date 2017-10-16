@@ -3,14 +3,14 @@
 from setuptools import setup
 import re
 
-script_content = open('combine-docx').read()
+script_content = open('docx-combine').read()
 metadata = dict(re.findall("__([a-z]+)__\s*=\s*'([^']+)'", script_content))
 
 setup(
-    name="combine-docx",
+    name="docx-combine",
     version=metadata['version'],
     description="Combine several docx files into one",
-    url="https://github.com/igsha/combine-docx",
+    url="https://github.com/cvlabmiet/docx-combine",
     author="igsha",
     license="LICENSE",
     classifiers=[
@@ -22,6 +22,6 @@ setup(
         "Programming Language :: Python",
         "Topic :: Text Processing"
     ],
-    scripts=['combine-docx'],
+    scripts=['docx-combine'],
     install_requires=['python-docx >= 0.8.6'],
 )
