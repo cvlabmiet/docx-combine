@@ -9,6 +9,11 @@ Use `pip` and install the program by url using [release page](https://github.com
 $ pip install https://github.com/cvlabmiet/docx-combine/archive/v0.2.4.zip
 ```
 
+On NixOS (the latest version):
+```sh
+$ nix-env -if https://api.github.com/repos/cvlabmiet/docx-combine/tarball/master
+```
+
 # Usage
 
 The program `docx-combine` has convenient command line interface, provided by `argparse` python module:
