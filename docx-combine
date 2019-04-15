@@ -19,9 +19,12 @@ main_doc = docx.Document(args.main[0])
 before_docs = [docx.Document(doc) for doc in args.before] if args.before else []
 after_docs = [docx.Document(doc) for doc in args.after] if args.after else []
 
+if args.page_break and len(after_docs) != 0:
+    main_doc.add_page_break()
+    for i in range(len(after_docs) - 1):
+        after_docs[i].add_page_break()
+
 for doc in after_docs:
-    if args.page_break:
-        main_doc.add_page_break()
     for element in doc.element.body:
         if not args.no_skip_sectpr and isinstance(element, docx.oxml.section.CT_SectPr):
             continue
