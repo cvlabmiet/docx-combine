@@ -1,8 +1,13 @@
 { pkgs ? import <nixpkgs> {} }:
 
-with pkgs; with python3Packages; buildPythonApplication rec {
+with pkgs;
+let
+  versionRegex = ".*__version__[[:space:]]*=[[:space:]]*['\"]([[:digit:]\\.]+)['\"].*";
+  version = builtins.head (builtins.match versionRegex (builtins.readFile ./docx-combine));
+
+in python3Packages.buildPythonApplication rec {
   pname = "docx-combine";
-  version = "0.2.4";
+  inherit version;
 
   src = ./.;
 

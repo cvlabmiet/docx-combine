@@ -4,10 +4,11 @@ Combine several DOCX documents into one using `python-docx` module.
 
 # Installation
 
-Use `pip` and install the program by url using [release page](https://github.com/cvlabmiet/docx-combine/releases/latest):
+Use `pip` and install the program by url:
 ```sh
-$ pip install https://github.com/cvlabmiet/docx-combine/archive/v0.2.4.zip
+$ pip install https://github.com/cvlabmiet/docx-combine/archive/<version>.zip
 ```
+Where `<version>` is a tag version described in [release page](https://github.com/cvlabmiet/docx-combine/releases/latest).
 
 On NixOS (the latest version):
 ```sh
@@ -44,7 +45,8 @@ optional arguments:
 
 Also it has `--version` flag to check the installed program version:
 ```sh
-docx-combine 0.2.4
+$ docx-combine --version
+docx-combine <version>
 ```
 
 The program expects `main` file that will be chosen as main part of document.

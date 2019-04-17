@@ -1,9 +1,9 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 from __future__ import print_function
 import docx, argparse
 
-__version__ = '0.2.4'
+__version__ = '0.2.5'
 
 parser = argparse.ArgumentParser(description='Combine tool for DOCX')
 parser.add_argument('--version', '-V', action='version', version='%(prog)s ' + __version__)
@@ -20,6 +20,7 @@ before_docs = [docx.Document(doc) for doc in args.before] if args.before else []
 after_docs = [docx.Document(doc) for doc in args.after] if args.after else []
 
 if args.page_break and len(after_docs) != 0:
+    # there is no insert break public method
     main_doc.add_page_break()
     for i in range(len(after_docs) - 1):
         after_docs[i].add_page_break()
