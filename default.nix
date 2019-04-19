@@ -11,7 +11,7 @@ in python3Packages.buildPythonApplication rec {
 
   src = ./.;
 
-  propagatedBuildInputs = [ python-docx ];
+  propagatedBuildInputs = with python3Packages; [ python-docx ];
 
   meta = with stdenv.lib; {
     homepage = https://github.com/cvlabmiet/docx-combine;
