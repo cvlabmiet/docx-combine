@@ -13,7 +13,7 @@ in python3Packages.buildPythonApplication rec {
 
   propagatedBuildInputs = with python3Packages; [ python-docx ];
 
-  meta = with stdenv.lib; {
+  meta = with lib; {
     homepage = https://github.com/cvlabmiet/docx-combine;
     description = "Combine several docx files into one";
     license = licenses.mit;
